@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class ProspectsController {
+public class MortgagePlanController {
     // Logger
-    private final Logger logger = LoggerFactory.getLogger(ProspectsController.class);
+    private final Logger logger = LoggerFactory.getLogger(MortgagePlanController.class);
     // Mapping to index in templates on GET request
     @GetMapping("/")
     public ModelAndView index(){
