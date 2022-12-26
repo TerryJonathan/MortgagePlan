@@ -36,6 +36,7 @@ public class Customers {
         this.loan= loan;
         this.interestRate= interestRate;
         this.numberOfYears= numberOfYears;
+        // paymentCalculator
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ax.codetest.mortgageplanweb.CustomerFromFile;
+package ax.codetest.mortgageplanweb.customerFromFile;
 
 
 
@@ -23,8 +23,6 @@ public class CustomerHandler {
     public void populateListFromFile(){
         String stringFromFile= readFile();
         customersListFromFile(stringFromFile);
-
-
     }
 
     private String readFile(){
