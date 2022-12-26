@@ -9,12 +9,12 @@
 </head>
 <body>
 <div class="container">
+    <div class="col-md-6">
     <h1 class="text-center">Mortgage Plan's</h1>
     <hr/>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Customer</th>
                 <th>Loan</th>
                 <th>Interest Rate</th>
@@ -25,7 +25,7 @@
         <tbody>
             <!-- th:each == thymeleaf method for iterating through all customers  -->
             <tr th:each="customer: ${customerEntries}">
-                <td th:text="${customer.id}"></td>
+
                 <td th:text="${customer.name}"></td>
                 <td th:text="${customer.loan}"></td>
                 <td th:text="${customer.interestRate}"></td>
@@ -34,10 +34,17 @@
             </tr>
         </tbody>
     </table>
+    </div>
+
+
+        <!-- Add new customer to db and list -->
+<a class="btn btn-success" href="add-customer">New Customer</a>
 
 </div>
 
-hello
+
+
+
 <script th:src="@{/webjars/jquery/3.6.1/jquery.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
 </body>

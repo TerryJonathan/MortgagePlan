@@ -45,7 +45,7 @@ public class Customers {
         }
         return result;
     }
-    private double calculateMonthlyPayment(double loan, double interestRate, int numberOfYears) {
+    public double calculateMonthlyPayment(double loan, double interestRate, int numberOfYears) {
         // p = Number of payments   |   b = Interest on a monthly basis
         // U = Total loan           |   E = Fixed monthly payment
         // x = (1 + b)^p
