@@ -7,10 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,11 +34,11 @@ public class MortgagePlanController {
         return modelAndView;
     }
     @GetMapping("/add-customer")
-    public String addForm(Customers customer){
+    public String addForm(){
         return "add-customer";
     }
     @PostMapping("/add")
-    public String addNewCustomer(@Valid Customers customer, BindingResult result,Model model ){
+    public String addNewCustomer(@Valid @ModelAttribute("customers") Customers customer, BindingResult result){
         if(result.hasErrors()){
             return "add-customer";
         }
@@ -51,6 +51,14 @@ public class MortgagePlanController {
 
         return "redirect:/";
     }
-//
+
+    @GetMapping("/remove/{id}")
+    public String remove(@PathVariable("id") long id){
+        Customers customer= customerRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("Customer id: "+ id +"doesn't exist"));
+        customerRepository.delete(customer);
+        return "redirect:/";
+
+    }
 
 }

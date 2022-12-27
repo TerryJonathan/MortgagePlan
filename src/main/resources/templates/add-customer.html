@@ -13,11 +13,12 @@
         <h3> Add a new customer</h3>
         <form action="#" th:action="@{/add}" th:object="${customers}" method="POST">
             <div class="form-group">
-                <input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Name" required>
-                <input class="form-control" type="text" th:field="*{loan}" id="loan" placeholder="Loan Amount..." required>
-                <input class="form-control" type="text" th:field="*{interestRate}" id="interestRate" placeholder="Interest Rate..." required>
-                <input class="form-control" type="text" th:field="*{numberOfYears}" id="numberOfYears" placeholder="Loan duration (years)" required>
+                <label for="name">Customer Name</label><input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Name" required>
+                <label for="loan"></label>Total Loan Amount<input class="form-control" type="text" th:field="*{loan}" id="loan" placeholder="Loan Amount..." required>
+                <label for="interestRate">Interest Rate</label><input class="form-control" type="text" th:field="*{interestRate}" id="interestRate" placeholder="Interest Rate..." required>
+                <label for="numberOfYears">Duration Of Loan</label><input class="form-control" type="text" th:field="*{numberOfYears}" id="numberOfYears" placeholder="Loan duration (years)" required>
             </div>
+            <br>
             <button type="submit" class="btn btn-success">New customer</button>
         </form>
 
