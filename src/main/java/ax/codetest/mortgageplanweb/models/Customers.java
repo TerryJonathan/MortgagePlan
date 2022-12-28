@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Entity
 @Table(name="customer")
 public class Customers {
@@ -69,4 +71,16 @@ public class Customers {
                 , id, name, loan, interestRate,numberOfYears, monthlyPayment);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customers customers = (Customers) o;
+        return Double.compare(customers.loan, loan) == 0 && Double.compare(customers.interestRate, interestRate) == 0 && numberOfYears == customers.numberOfYears && Double.compare(customers.monthlyPayment, monthlyPayment) == 0 && name.equals(customers.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, loan, interestRate, numberOfYears, monthlyPayment);
+    }
 }

@@ -21,7 +21,7 @@ public class MortgagePlanController {
     private final Logger logger = LoggerFactory.getLogger(MortgagePlanController.class);
     // Mapping to index in templates on GET request
     @Autowired
-    private CustomerRepository customerRepository;
+    private CustomerRepository customerRepository ;
 
     @GetMapping("/")
     public ModelAndView index(){

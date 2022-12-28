@@ -22,7 +22,8 @@ public class CustomerHandler {
     }
     public void populateListFromFile(){
         String stringFromFile= readFile();
-        customersListFromFile(stringFromFile);
+        // make customer list return
+        this.customersList= customersListFromFile(stringFromFile);
     }
 
     private String readFile(){
@@ -47,8 +48,9 @@ public class CustomerHandler {
         return content.toString();
     }
 
-    private void customersListFromFile(String fileString ){
-        this.customersList= new ArrayList<>();
+    private List<Customers> customersListFromFile(String fileString ){
+        List<Customers> customers = new ArrayList<>();
+
         // Remove all unwanted characters ^except .,\p{IsAlphabetic}0-9  newline space
         fileString= fileString.replaceAll("[^.,\\p{IsAlphabetic}0-9\n ]+", "");
 
@@ -59,9 +61,10 @@ public class CustomerHandler {
         for (String line : lines) {
             String[] parts = line.split(",");
             if (parts.length >= 4) { // Then there shouldn't be any completely missing parts
-                this.customersList.add(customerFromFile(parts));
+                customers.add(customerFromFile(parts));
             }
         }
+        return customers;
     }
     private Customers customerFromFile(String[] parts){
         StringBuilder name = new StringBuilder();
