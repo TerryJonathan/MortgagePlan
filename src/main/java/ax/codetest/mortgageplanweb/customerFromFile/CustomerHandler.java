@@ -5,6 +5,7 @@ package ax.codetest.mortgageplanweb.customerFromFile;
 import ax.codetest.mortgageplanweb.models.Customers;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -29,7 +30,7 @@ public class CustomerHandler {
     private String readFile(){
         StringBuilder content= new StringBuilder();
         boolean isFirstLine= true;// Boolean to track if first it's the first line
-        Path path= Paths.get("prospects.txt");// File should in this case be placed in root folder
+        Path path= Paths.get(System.getProperty("user.dir") + File.separator+"prospects.txt");// File should in this case be placed in root folder
 
         try (BufferedReader bReader = Files.newBufferedReader(path, Charset.defaultCharset())) {
             String line;

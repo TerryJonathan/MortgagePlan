@@ -74,11 +74,13 @@
 
 
     <build>
+        <finalName>MortgagePlanWeb</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <imageName>mortgage-plan-web-image</imageName>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>

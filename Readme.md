@@ -7,6 +7,16 @@
 
 >#### 1. Installation & run instruction
 
+###### To run application via Docker:
+
+In terminal type:
+
+    docker pull jonathanmterry/terrymortgage
+
+    docker run -it --rm -p 8080:8080  jonathanmterry/terrymortgage 
+
+Now application should be running at: http://localhost:8080
+
 ###### To run application via an IDE:
 - Open the MortgagePlanWeb folder as project and hit run.
 - After successful build the program should be listening on port: 8080
