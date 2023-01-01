@@ -6,7 +6,10 @@
 
 
 >#### 1. Installation & run instruction
+> 
+###### To run application via AWS:
 
+http://ec2-54-211-9-212.compute-1.amazonaws.com:8080/
 
 ###### To run application via Docker:
 
