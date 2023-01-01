@@ -7,12 +7,38 @@
 
 >#### 1. Installation & run instruction
 > 
-###### To run application via AWS:
+### *To run application via AWS:*
+***
 
 http://ec2-54-211-9-212.compute-1.amazonaws.com:8080/
 
-###### To run application via Docker:
+###### Info to restart app;
 
+Hostname:
+- ec2-54-211-9-212.compute-1.amazonaws.com
+
+User name: 
+- ubuntu
+
+
+Keys are located in MortgagePlanWeb folder as:
+
+- PuTTY: key.ppk
+- MortgageAWS.pem
+
+>cd ./jars/
+
+>screen  
+
+>java -jar MortgagePlanWeb.jar'
+
+>CTRL + A
+
+>CTRL + D
+***
+
+### *To run application via Docker:*
+***
 In terminal type:
 
     docker pull jonathanmterry/terrymortgage
@@ -20,15 +46,16 @@ In terminal type:
     docker run -it --rm -p 8080:8080  jonathanmterry/terrymortgage 
 
 Now application should be running at: http://localhost:8080
+***
 
-
-###### To run application via an IDE:
+### *To run application via an IDE:*
+***
 - Open the MortgagePlanWeb folder as project and hit run.
 - After successful build the program should be listening on port: 8080
 - Open any browser and enter: http://localhost:8080 
 - And the Mortgage Plan webb application should appear.
 - To open H2 console go to: http://localhost:8080/h2-console
-
+***
 <br>
 
 >#### 3. Application functionality
