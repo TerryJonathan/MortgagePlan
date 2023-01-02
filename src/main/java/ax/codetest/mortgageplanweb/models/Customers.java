@@ -9,8 +9,8 @@ import lombok.Setter;
 import java.util.Objects;
 
 /**
- * Class defining customers or "prospects" for the Mortgage Plan Calculator.
- * It also serves the function as a template for the H2 database schema
+ * Class defining customers or prospects for the Mortgage Plan Calculator.
+ * It also serves as a template for the H2 database schema
  */
 @Entity
 @Table(name="customer")
@@ -45,10 +45,10 @@ public class Customers {
      * This constructor automatically sets the monthly payment, however it
      * could be changed or added to in future versions if needed to some other
      * payment arrangement.
-     * @param name for the customer in question
-     * @param loan is the total loan-amount
+     * @param name of customer
+     * @param loan is the total loan amount
      * @param interestRate the interest rate
-     * @param numberOfYears the amount of years in which the loan is supposed to be repaid.
+     * @param numberOfYears the amount of years in which the loan is to be repaid.
      */
     public Customers(String name, double loan, double interestRate, int numberOfYears ){
         this.name= name;

@@ -11,18 +11,30 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *  CustomerHandler is responsible for creating a list of customers
+ *  <br>
+ *  prospects.txt found locally in root of project folder is where
+ *  CustomerHandler will create its initial list from
+ */
 public class CustomerHandler {
     private List<Customers> customersList;
-    // Getter for Customers list
     public List<Customers> getCustomersList() {
         return customersList;
     }
+
+    /**
+     * Method that reads a local file and creates a list of customers from it.
+     */
     public void populateListFromFile(){
         String stringFromFile= readFile();
         this.customersList= customersListFromFile(stringFromFile);
     }
 
+    /**
+     * Method that reads a local file in this case prospects.txt located in project root
+     * @return content of file as a string
+     */
     private String readFile(){
         StringBuilder content= new StringBuilder();
         boolean isFirstLine= true;// Boolean to track if it's the first line
@@ -46,6 +58,11 @@ public class CustomerHandler {
         return content.toString();
     }
 
+    /**
+     * Method that formats a string so that a number of customers can be created
+     * @param fileString prospects.txt in String format
+     * @return A List<Customers>
+     */
     private List<Customers> customersListFromFile(String fileString ){
         List<Customers> customers = new ArrayList<>();
 
@@ -64,6 +81,12 @@ public class CustomerHandler {
         }
         return customers;
     }
+
+    /**
+     * Method that creates Customers objects from an array of Strings
+     * @param parts the array containing customer information in string format
+     * @return A Customer
+     */
     private Customers customerFromFile(String[] parts){
         StringBuilder name = new StringBuilder();
         for (int j = parts.length - 4; j >= 0; j--) {
