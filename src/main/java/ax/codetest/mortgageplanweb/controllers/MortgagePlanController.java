@@ -1,5 +1,6 @@
 package ax.codetest.mortgageplanweb.controllers;
-
+import ax.codetest.mortgageplanweb.calculation.Calculation;
+import ax.codetest.mortgageplanweb.calculation.MonthlyPayment;
 import ax.codetest.mortgageplanweb.models.Customers;
 import ax.codetest.mortgageplanweb.repositories.CustomerRepository;
 import jakarta.validation.Valid;
@@ -30,7 +31,7 @@ public class MortgagePlanController {
         ModelAndView modelAndView= new ModelAndView("index");
         // Adding customers to modelAndView
         // pulling from database and creating a "list object" with the key name of customers
-        // this makes it possible to in View template to hav access to this list.
+        // this makes it possible in View template to have access to this list.
         modelAndView.addObject("customerEntries",customerRepository.findAll());
         return modelAndView;
     }
@@ -43,11 +44,14 @@ public class MortgagePlanController {
         if(result.hasErrors()){
             return "add-customer";
         }
-        double loan= customer.getLoan();
-        double interestRate= customer.getInterestRate();
-        int nrOfYears= customer.getNumberOfYears();
 
-        customer.setMonthlyPayment(customer.calculateMonthlyPayment(loan,interestRate,nrOfYears));
+        // Todo add checks to not be able to put in wierd stuff
+//        double loan= customer.getLoan();
+//        double interestRate= customer.getInterestRate();
+//        int nrOfYears= customer.getNumberOfYears();
+      Calculation calculator= new MonthlyPayment();
+
+      customer.setMonthlyPayment(calculator.calculatePayment(customer));
         customerRepository.save(customer);
 
         return "redirect:/";

@@ -23,14 +23,14 @@ public class CustomerHandler {
     }
     public void populateListFromFile(){
         String stringFromFile= readFile();
-        // make customer list return
         this.customersList= customersListFromFile(stringFromFile);
     }
 
     private String readFile(){
         StringBuilder content= new StringBuilder();
-        boolean isFirstLine= true;// Boolean to track if first it's the first line
-        Path path= Paths.get(System.getProperty("user.dir") + File.separator+"prospects.txt");// File should in this case be placed in root folder
+        boolean isFirstLine= true;// Boolean to track if it's the first line
+        // File should in this case be placed in project root folder
+        Path path= Paths.get(System.getProperty("user.dir") + File.separator+"prospects.txt");
 
         try (BufferedReader bReader = Files.newBufferedReader(path, Charset.defaultCharset())) {
             String line;
