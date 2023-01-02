@@ -10,6 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class CustomerHandlerTest {
+        private final List<Customers> expected= new ArrayList<>();
+
         private final CustomerHandler customerHandler= new CustomerHandler();
     @Test
     void readFileTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
@@ -28,8 +30,7 @@ class CustomerHandlerTest {
     }
     @Test
     void customerListFromStringTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        // Expected Customer List
-        List<Customers> expected= new ArrayList<>();
+
         expected.add(new Customers("Juha",1000,5,2));
         expected.add(new Customers("Karvinen",4356,1.27,6));
         expected.add(new Customers("Claes Månsson",1300.55,8.67,2));
@@ -47,12 +48,9 @@ class CustomerHandlerTest {
         // CustomerHandler customerHandler= new CustomerHandler();
         List<Customers> result= (List<Customers>) method.invoke(customerHandler,inputString);
 
-       for (int i =0 ;i<expected.size();i++){
+        for (int i =0 ;i<expected.size();i++){
            assertEquals(expected.get(i), result.get(i));
        }
-
-
-
     }
 
 }

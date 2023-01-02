@@ -10,9 +10,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component // So springboot recognises it on setup
-public class CustomerFromFile implements CommandLineRunner {
-    private  final Logger logger= LoggerFactory.getLogger(CustomerFromFile.class);
+/**
+ * InitializeMortgagePlan is run at initial startup of application.
+ * It checks if the repository is empty if it is then a local file is read.
+ * A list of customers is created from prospects.txt
+ * The list is printed to terminal
+ */
+@Component // Makes springboot recognises it during setup
+public class InitializeMortgagePlan implements CommandLineRunner {
+    CustomerHandler customerHandler = new CustomerHandler();
+    private  final Logger logger= LoggerFactory.getLogger(InitializeMortgagePlan.class);
 
     @Autowired
     CustomerRepository customerRepository;
@@ -22,18 +29,22 @@ public class CustomerFromFile implements CommandLineRunner {
         fromFile();
     }
 
-    // Read file and import CustomerProspects from file
+    /**
+     * Read file prospects.txt and get Customers and prospects from file
+     */
     private void fromFile() {
         if(customerRepository.count()== 0){
-            CustomerHandler customerHandler = new CustomerHandler();
             customerHandler.populateListFromFile(); // Read file and place in list
-            List<Customers> customerList= customerHandler.getCustomersList(); // Get list
-            printList(customerList); // Print out list
-            customerRepository.saveAll(customerList);// Add to H2 Database
+            customerRepository.saveAll(customerHandler.getCustomersList());// Add to H2 Database
+            printList(customerHandler.getCustomersList());
         }
         logger.info("Number of customers: {}", customerRepository.count());
     }
 
+    /**
+     * On initial application run print list to terminal
+     * @param customerList current list containing customers from prospects.txt
+     */
     private void printList(List<Customers> customerList){
         int count= 1;
         for (Customers customer: customerList ) {

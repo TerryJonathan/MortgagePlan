@@ -16,18 +16,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * This is the Controller for the Mortgage Plan Web Application.
+ * It handels the POST and GET requests from the web interface
+ */
 @Controller
 public class MortgagePlanController {
-    // Logger
     private final Logger logger = LoggerFactory.getLogger(MortgagePlanController.class);
-    // Mapping to index in templates on GET request
     @Autowired
     private CustomerRepository customerRepository ;
 
     @GetMapping("/")
     public ModelAndView index(){
         logger.debug("GET index");
-
         ModelAndView modelAndView= new ModelAndView("index");
         // Adding customers to modelAndView
         // pulling from database and creating a "list object" with the key name of customers
@@ -44,16 +45,9 @@ public class MortgagePlanController {
         if(result.hasErrors()){
             return "add-customer";
         }
-
-        // Todo add checks to not be able to put in wierd stuff
-//        double loan= customer.getLoan();
-//        double interestRate= customer.getInterestRate();
-//        int nrOfYears= customer.getNumberOfYears();
-      Calculation calculator= new MonthlyPayment();
-
-      customer.setMonthlyPayment(calculator.calculatePayment(customer));
+        Calculation calculator= new MonthlyPayment();
+        customer.setMonthlyPayment(calculator.calculatePayment(customer));
         customerRepository.save(customer);
-
         return "redirect:/";
     }
 
@@ -63,7 +57,5 @@ public class MortgagePlanController {
                 .orElseThrow(()-> new IllegalArgumentException("Customer id: "+ id +"doesn't exist"));
         customerRepository.delete(customer);
         return "redirect:/";
-
     }
-
 }

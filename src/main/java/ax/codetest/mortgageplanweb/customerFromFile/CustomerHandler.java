@@ -1,9 +1,6 @@
 package ax.codetest.mortgageplanweb.customerFromFile;
 
-
-
 import ax.codetest.mortgageplanweb.models.Customers;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;

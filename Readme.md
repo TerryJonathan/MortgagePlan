@@ -12,7 +12,7 @@
 
 http://ec2-54-211-9-212.compute-1.amazonaws.com:8080/
 
-###### Info to restart app;
+##### Info to restart app;
 
 Hostname:
 - ec2-54-211-9-212.compute-1.amazonaws.com
@@ -20,21 +20,16 @@ Hostname:
 User name: 
 - ubuntu
 
-
 Keys are located in MortgagePlanWeb folder as:
-
 - PuTTY: key.ppk
 - MortgageAWS.pem
 
->cd ./jars/
-
->screen  
-
->java -jar MortgagePlanWeb.jar'
-
->CTRL + A
-
->CTRL + D
+> Commands ssh client: 
+>- cd ./jars/ 
+>- screen
+>- java -jar MortgagePlanWeb.jar
+>- CTRL + A
+>- CTRL + D
 ***
 
 ### *To run application via Docker:*
@@ -72,7 +67,7 @@ be added. All fields of the form have to be filled and a new customer incomplete
 
 To remove a customer pres the yellow X button.
 
->#### 3. About application
+>#### 4. About application
 
 
 This is my first Spring Boot application and Java Web application. 
