@@ -35,7 +35,7 @@ public class CustomerHandler {
      * Method that reads a local file in this case prospects.txt located in project root
      * @return content of file as a string
      */
-    private String readFile(){
+    public String readFile(){
         StringBuilder content= new StringBuilder();
         boolean isFirstLine= true;// Boolean to track if it's the first line
         // File should in this case be placed in project root folder
@@ -47,7 +47,6 @@ public class CustomerHandler {
                 // Skip first line. Save all other lines that contain more than 5 characters.
                 if(line.length() > 5 && !isFirstLine) {
                     content.append(line);
-                    // Adding new line
                     content.append("\n");
                 }
                 isFirstLine= false;
@@ -65,17 +64,13 @@ public class CustomerHandler {
      */
     private List<Customers> customersListFromFile(String fileString ){
         List<Customers> customers = new ArrayList<>();
-
         // Remove all unwanted characters ^except .,\p{IsAlphabetic}0-9  newline space
         fileString= fileString.replaceAll("[^.,\\p{IsAlphabetic}0-9\n ]+", "");
-
-        // Split string on new line.
         String[] lines = fileString.split("\\n");
-        // If text would or could be alot longer then perhaps use Stringbuilder instead
 
         for (String line : lines) {
             String[] parts = line.split(",");
-            if (parts.length >= 4) { // Then there shouldn't be any completely missing parts
+            if (parts.length >= 4) {
                 customers.add(customerFromFile(parts));
             }
         }

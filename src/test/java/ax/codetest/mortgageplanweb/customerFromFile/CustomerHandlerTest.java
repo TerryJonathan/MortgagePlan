@@ -21,11 +21,7 @@ class CustomerHandlerTest {
                 Claes Månsson,1300.55,8.67,2
                 "Clarencé,Andersson",2000,6,4
                 """;
-       // Getting private method readFile()
-        Method readFile= CustomerHandler.class.getDeclaredMethod("readFile");
-        readFile.setAccessible(true);
-        //CustomerHandler customerHandler= new CustomerHandler();
-        String result= (String) readFile.invoke(customerHandler); // Running method
+        String result=customerHandler.readFile();
         assertEquals(expected,result);
     }
     @Test
@@ -37,15 +33,14 @@ class CustomerHandlerTest {
         expected.add(new Customers("Clarencé Andersson",2000,6,4));
 
         String inputString = """
-                Juha,1000,5,2
+                Ju/=)&ha,10(=)/00,5,2
                 Karvinen,4356,1.27,6
                 Claes *************Mån****sson,1300.55,8.67,2
-                "Clarencé,Andersson",2000,6,4
+                "Clarencé,Ande_____________________rsson",2000,6,4
                 """;
 
         Method method= CustomerHandler.class.getDeclaredMethod("customersListFromFile",String.class);
         method.setAccessible(true);
-        // CustomerHandler customerHandler= new CustomerHandler();
         List<Customers> result= (List<Customers>) method.invoke(customerHandler,inputString);
 
         for (int i =0 ;i<expected.size();i++){

@@ -51,12 +51,16 @@ public class Customers {
      * @param numberOfYears the amount of years in which the loan is to be repaid.
      */
     public Customers(String name, double loan, double interestRate, int numberOfYears ){
-        this.name= name;
-        this.loan= loan;
-        this.interestRate= interestRate;
-        this.numberOfYears= numberOfYears;
+        this.name= name; this.loan= loan; this.interestRate= interestRate; this.numberOfYears= numberOfYears;
         Calculation calculator= new MonthlyPayment();
-        this.monthlyPayment= calculator.calculatePayment(this);
+        if(loan > 0 && interestRate >= 0 && numberOfYears>0 && name!= ""){
+            this.monthlyPayment= calculator.calculatePayment(this);
+        }
+        else {
+            this.name= null; this.loan= 0; this.interestRate= 0; this.numberOfYears= 0;
+            System.out.println("Error invalid customer all fields need to be valid");
+        }
+
     }
 
 

@@ -27,10 +27,17 @@ public class MonthlyPayment implements Calculation {
         //Simplified formula:  E = U[bx]/[x - 1]
         return customer.getLoan()* (monthlyInterest*x) / (x-1);
     }
-    private double pow(double base, int power){
+    public double pow(double base, int exponent){
+        if (exponent<0){
+            throw new IllegalArgumentException("Exponent can't be negativ");
+
+        }
         double result=1;
-        for (int i = power; i !=0 ; i--) {
+        for (int i = exponent; i !=0 ; i--) {
             result= result * base;
+        }
+        if(base<0){
+            result= result- result*2;
         }
         return result;
     }
