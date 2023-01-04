@@ -2,59 +2,36 @@
 # Mortgage Plan
 
 ### *Web Application*
+***
 <br>
-
 
 >#### 1. Installation & run instruction
-> 
-### *To run application via AWS:*
-***
-
-http://ec2-54-236-109-101.compute-1.amazonaws.com:8080/
-
-##### Info to restart app;
-
-Hostname:
-- ec2-54-236-109-101.compute-1.amazonaws.com
-
-User name: 
-- ubuntu
-
-Keys are located in MortgagePlanWeb folder as:
-- PuTTY: MortagePlanV2.ppk
-- MortagePlanV2.pem
-
-> Commands ssh client: 
->- cd jars 
->- screen
->- java -jar MortgagePlanWeb.jar
->- CTRL + A
->- CTRL + D
-***
-
-### *To run application via Docker:*
-***
-In terminal type:
-
-    docker pull jonathanmterry/terrymortgage
-
-    docker run -it --rm -p 8080:8080  jonathanmterry/terrymortgage 
+ 
+###### *Run application via AWS:*
+http://ec2-54-236-109-101.compute-1.amazonaws.com:8080/ 
+    
+    Info to restart app:
+    Hostname: ec2-54-236-109-101.compute-1.amazonaws.com 
+    User name: ubuntu 
+    Keys in MortgagePlanWeb folder: MortagePlanV2.ppk , MortagePlanV2.pem
+###### *Run application via Docker:*
+    docker pull jonathanmterry/mortgage_web
+    docker run -it --rm -p 8080:8080  jonathanmterry/mortgage_web 
 
 Now application should be running at: http://localhost:8080
-***
 
-### *To run application via an IDE:*
-***
-- Open the MortgagePlanWeb folder as project and hit run.
-- After successful build the program should be listening on port: 8080
-- Open any browser and enter: http://localhost:8080 
-- And the Mortgage Plan webb application should appear.
-- To open H2 console go to: http://localhost:8080/h2-console
-***
-<br>
 
->#### 3. Application functionality
+###### *Run application via an IDE:*
 
+    Open the MortgagePlanWeb folder as project and hit run.
+    After successful build the program should be listening on port: 8080
+Now application should be running at: http://localhost:8080 <br>
+To open H2 console go to: http://localhost:8080/h2-console
+
+***
+<br><br>
+
+>#### 2. Application functionality
 
 The Mortgage plan web application's basic functionality is to  take in a mortgage plan and calculate
 the monthly payment. Based on total loan amount, loan time in years and an interest rate  a monthly  payment can be returned.
@@ -66,12 +43,10 @@ A new customer can be added via the new customer button. This will route the use
 be added. All fields of the form have to be filled and a new customer incompletely filled in would result in a redirect back to same form 
 
 To remove a customer pres the yellow X button.
-
->#### 4. About application
-
-
-This is my first Spring Boot application and Java Web application. 
-<br>I used this tutorial by [Wazoo Web Bytes](https://www.youtube.com/watch?v=Hvuij8SOW8Q)  to a great extent. and would recommend anyone to check it out
+***
+<br><br>
+>#### 3. About application
+I used this tutorial by [Wazoo Web Bytes](https://www.youtube.com/watch?v=Hvuij8SOW8Q)  for inspiration and would recommend anyone to check it out.
 
 | Version info                                           | Dependencies                                                                                                                     |   
 |--------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
