@@ -10,22 +10,22 @@
 ### *To run application via AWS:*
 ***
 
-http://ec2-54-211-9-212.compute-1.amazonaws.com:8080/
+http://ec2-54-236-109-101.compute-1.amazonaws.com:8080/
 
 ##### Info to restart app;
 
 Hostname:
-- ec2-54-211-9-212.compute-1.amazonaws.com
+- ec2-54-236-109-101.compute-1.amazonaws.com
 
 User name: 
 - ubuntu
 
 Keys are located in MortgagePlanWeb folder as:
-- PuTTY: key.ppk
-- MortgageAWS.pem
+- PuTTY: MortagePlanV2.ppk
+- MortagePlanV2.pem
 
 > Commands ssh client: 
->- cd ./jars/ 
+>- cd jars 
 >- screen
 >- java -jar MortgagePlanWeb.jar
 >- CTRL + A
