@@ -11,9 +11,9 @@
 <body>
 <div class="container">
     <div class="col-md-8">
-    <h1 class="text-center">Mortgage Plan</h1>
-    <hr/>
-    <table class="table table-bordered" >
+    <h1 class="text-head">Mortgage Plan</h1>
+
+    <table class="customers" >
         <thead>
             <tr class="text-center">
                 <th>Customer</th>
@@ -33,17 +33,17 @@
                 <td th:text="${customer.interestRate}"></td>
                 <td th:text="${customer.numberOfYears}"></td>
                 <td th:text="${#numbers.formatDecimal(customer.monthlyPayment,2,2) }"></td>
-                <td class="text-center" ><a class="btn btn-warning" th:href="@{/remove/{id}(id=${customer.id})}">X</a></td>
+                <td class="text-center" ><a class="button button_remove"  th:href="@{/remove/{id}(id=${customer.id})}">X</a></td>
 
             </tr>
         </tbody>
     </table>
-        <div class="blue_box"> this should be blue</div>
+
     </div>
 
 
         <!-- Button for adding a new customer to db and list -->
-<a class="btn btn-success" href="add-customer">Add New Customer</a>
+<a class="button button_add" href="add-customer">Add New Customer</a>
 
 </div>
 

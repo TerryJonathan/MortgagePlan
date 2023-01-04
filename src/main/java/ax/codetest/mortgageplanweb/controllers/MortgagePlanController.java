@@ -43,7 +43,10 @@ public class MortgagePlanController {
     @PostMapping("/add")
     public String addNewCustomer(@Valid @ModelAttribute("customers") Customers customer, BindingResult result, Model model){
         if(result.hasErrors()){
-            return "add-customer";
+            return "add-customer-help";
+        }
+        if(customer.getLoan()<=0|| customer.getInterestRate()<0 ||customer.getNumberOfYears()>0){
+            return "add-customer-help";
         }
         Calculation calculator= new MonthlyPayment();
         customer.setMonthlyPayment(calculator.calculatePayment(customer));

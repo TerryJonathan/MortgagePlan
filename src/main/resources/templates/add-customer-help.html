@@ -22,8 +22,26 @@
             </div>
             <br>
             <button type="submit" class="button button_add">New customer</button>
-        </form>
 
+        </form>
+        <div class="alert alert-primary" role="alert">
+            <h4 class="alert-heading">Something went wrong!</h4>
+            <ul>
+                <li>
+                    Loan amount needs to be more than 0
+                </li>
+                <li>
+                    Interest rate can not be negative
+                </li>
+                <li>
+                    And the length of the loan has to be one year or more.
+                </li>
+
+            </ul>
+
+            <hr>
+            <p class="mb-0">Please try again</p>
+        </div>
     </div>
 </div>
 
