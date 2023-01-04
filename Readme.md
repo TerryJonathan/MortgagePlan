@@ -5,7 +5,7 @@
 ***
 <br>
 
->#### 1. Installation & run instruction
+#### 1. Installation & run instruction
  
 ###### *Run application via AWS:*
 http://ec2-54-236-109-101.compute-1.amazonaws.com:8080/ 
@@ -31,7 +31,7 @@ To open H2 console go to: http://localhost:8080/h2-console
 ***
 <br><br>
 
->#### 2. Application functionality
+#### 2. Application functionality
 
 The Mortgage plan web application's basic functionality is to  take in a mortgage plan and calculate
 the monthly payment. Based on total loan amount, loan time in years and an interest rate  a monthly  payment can be returned.
@@ -45,7 +45,7 @@ be added. All fields of the form have to be filled and a new customer incomplete
 To remove a customer pres the yellow X button.
 ***
 <br><br>
->#### 3. About application
+#### 3. About application
 I used this tutorial by [Wazoo Web Bytes](https://www.youtube.com/watch?v=Hvuij8SOW8Q)  for inspiration and would recommend anyone to check it out.
 
 | Version info                                           | Dependencies                                                                                                                     |   
