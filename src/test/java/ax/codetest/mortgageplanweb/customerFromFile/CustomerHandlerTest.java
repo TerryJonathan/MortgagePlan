@@ -14,7 +14,7 @@ class CustomerHandlerTest {
 
         private final CustomerHandler customerHandler= new CustomerHandler();
     @Test
-    void readFileTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    void readFileTest(){
         String expected = """
                 Juha,1000,5,2
                 Karvinen,4356,1.27,6
@@ -41,6 +41,7 @@ class CustomerHandlerTest {
 
         Method method= CustomerHandler.class.getDeclaredMethod("customersListFromFile",String.class);
         method.setAccessible(true);
+        @SuppressWarnings("unchecked")
         List<Customers> result= (List<Customers>) method.invoke(customerHandler,inputString);
 
         for (int i =0 ;i<expected.size();i++){

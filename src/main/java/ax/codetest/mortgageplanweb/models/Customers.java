@@ -53,7 +53,7 @@ public class Customers {
     public Customers(String name, double loan, double interestRate, int numberOfYears ){
         this.name= name; this.loan= loan; this.interestRate= interestRate; this.numberOfYears= numberOfYears;
         Calculation calculator= new MonthlyPayment();
-        if(loan > 0 && interestRate >= 0 && numberOfYears>0 && name!= ""){
+        if(loan > 0 && interestRate >= 0 && numberOfYears>0){
             this.monthlyPayment= calculator.calculatePayment(this);
         }
         else {

@@ -56,9 +56,8 @@ class MonthlyPaymentTest {
 
 
 
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            monthlyPayment.pow(23,-2);
-        });
+        Exception exception = assertThrows(IllegalArgumentException.class,
+                () -> monthlyPayment.pow(23,-2));
 
         String expectedString = "Exponent can't be negativ";
         String resultString = exception.getMessage();
