@@ -8,16 +8,11 @@
 #### 1. Installation & run instruction
  
 ###### *Run application via AWS:*
-http://ec2-54-236-109-101.compute-1.amazonaws.com:8080/ 
-    
-    Info to restart app:
-    Hostname: ec2-54-236-109-101.compute-1.amazonaws.com 
-    User name: ubuntu 
-    Keys in MortgagePlanWeb folder: MortagePlanV2.ppk , MortagePlanV2.pem
+http://ec2-54-236-109-101.compute-1.amazonaws.com:8080/
+
 ###### *Run application via Docker:*
     docker pull jonathanmterry/mortgage_web
-    docker run -it --rm -p 8080:8080  jonathanmterry/mortgage_web 
-
+    docker run -it --rm -p 8080:8080  jonathanmterry/mortgage_web
 Now application should be running at: http://localhost:8080
 
 
